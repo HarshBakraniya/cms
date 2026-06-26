@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CMS Pro - Dashboard</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+
+                    colors: {
+
+                        background: "#13121b",
+
+                        surface: "#1f1f28",
+
+                        card: "#24242d",
+
+                        primary: "#6366f1",
+
+                        secondary: "#8b5cf6",
+
+                        border: "#3b3b46",
+
+                        text: "#e4e1ee",
+
+                        muted: "#9ca3af",
+
+                        success: "#22c55e",
+
+                        warning: "#f59e0b",
+
+                        danger: "#ef4444"
+
+                    },
+
+                    fontFamily: {
+
+                        sans: ["Inter"],
+
+                        heading: ["Hanken Grotesk"]
+
+                    }
+
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+
+            font-family: Inter, sans-serif;
+
+        }
+
+        .card {
+
+            background: #1f1f28;
+
+            border: 1px solid #35343e;
+
+            border-radius: 18px;
+
+            transition: .25s;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #6366f1;
+
+            box-shadow: 0 15px 35px rgba(99, 102, 241, .15);
+
+        }
+
+        .sidebar-item {
+
+            transition: .2s;
+
+        }
+
+        .sidebar-item:hover {
+
+            background: #2b2b35;
+
+            color: white;
+
+        }
+
+        .active {
+
+            background: #4f46e5;
+
+            color: white;
+
+        }
+    </style>
+
+</head>
+
+<body class="bg-background text-text">
+
+    <div class="flex">
+
+        <!-- Sidebar -->
+
+        <aside class="w-64 bg-surface min-h-screen border-r border-border">
+
+            <div class="p-6">
+
+                <h1 class="text-2xl font-bold font-heading text-primary">
+
+                    CMS Pro
+
+                </h1>
+
+                <p class="text-muted text-sm mt-1">
+
+                    Enterprise Dashboard
+
+                </p>
+
+            </div>
+
+            <nav class="px-4 space-y-2">
+
+                <a href="dashboard.html" class="sidebar-item active flex items-center gap-3 px-4 py-3 rounded-xl">
+
+                    <span class="material-symbols-outlined">
+
+                        dashboard
+
+                    </span>
+
+                    Dashboard
+
+                </a>
+
+                <a href="clients.html" class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl">
+
+                    <span class="material-symbols-outlined">
+
+                        group
+
+                    </span>
+
+                    Clients
+
+                </a>
+
+                <a href="projects.html" class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl">
+
+                    <span class="material-symbols-outlined">
+
+                        account_tree
+
+                    </span>
+
+                    Projects
+
+                </a>
+
+                <a href="#" class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl">
+
+                    <span class="material-symbols-outlined">
+
+                        description
+
+                    </span>
+
+                    Invoices
+
+                </a>
+
+                <a href="#" class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl">
+
+                    <span class="material-symbols-outlined">
+
+                        payments
+
+                    </span>
+
+                    Payments
+
+                </a>
+
+                <a href="settings.html" class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl">
+
+                    <span class="material-symbols-outlined">
+
+                        settings
+
+                    </span>
+
+                    Settings
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main -->
+
+        <div class="flex-1">
+
+            <header class="h-16 border-b border-border bg-surface flex items-center justify-between px-8">
+
+                <h2 class="text-xl font-semibold">
+
+                    Dashboard
+
+                </h2>
+
+                <div class="flex items-center gap-4">
+
+                    <input type="text" placeholder="Search..."
+                        class="bg-card border border-border rounded-lg px-4 py-2 w-64 outline-none">
+
+                    <button>
+
+                        <span class="material-symbols-outlined">
+
+                            notifications
+
+                        </span>
+
+                    </button>
+
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold">
+
+                        A
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <main class="p-8">
+
+                <h1 class="text-3xl font-heading font-bold">
+
+                    Welcome Back 👋
+
+                </h1>
+
+                <p class="text-muted mt-2">
+
+                    Here's what's happening with your business today.
+
+                </p>
+
+                <!-- KPI Cards -->
+
+                <div class="grid grid-cols-4 gap-6 mt-8">
+                    <!-- Revenue -->
+                    <div class="card p-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-muted">Revenue</span>
+
+                            <span class="material-symbols-outlined text-primary">
+                                payments
+                            </span>
+                        </div>
+
+                        <h2 class="text-3xl font-bold mt-4">
+                            $124,520
+                        </h2>
+
+                        <p class="text-success mt-3 text-sm">
+                            ▲ 18% from last month
+                        </p>
+                    </div>
+
+                    <!-- Clients -->
+
+                    <div class="card p-6">
+
+                        <div class="flex justify-between items-center">
+
+                            <span class="text-muted">
+
+                                Clients
+
+                            </span>
+
+                            <span class="material-symbols-outlined text-primary">
+
+                                group
+
+                            </span>
+
+                        </div>
+
+                        <h2 class="text-3xl font-bold mt-4">
+
+                            248
+
+                        </h2>
+
+                        <p class="text-success mt-3 text-sm">
+
+                            ▲ 12 New Clients
+
+                        </p>
+
+                    </div>
+
+                    <!-- Projects -->
+
+                    <div class="card p-6">
+
+                        <div class="flex justify-between items-center">
+
+                            <span class="text-muted">
+
+                                Active Projects
+
+                            </span>
+
+                            <span class="material-symbols-outlined text-primary">
+
+                                account_tree
+
+                            </span>
+
+                        </div>
+
+                        <h2 class="text-3xl font-bold mt-4">
+
+                            42
+
+                        </h2>
+
+                        <p class="text-warning mt-3 text-sm">
+
+                            6 Due This Week
+
+                        </p>
+
+                    </div>
+
+                    <!-- Payments -->
+
+                    <div class="card p-6">
+
+                        <div class="flex justify-between items-center">
+
+                            <span class="text-muted">
+
+                                Pending Payments
+
+                            </span>
+
+                            <span class="material-symbols-outlined text-primary">
+
+                                receipt_long
+
+                            </span>
+
+                        </div>
+
+                        <h2 class="text-3xl font-bold mt-4">
+
+                            $8,430
+
+                        </h2>
+
+                        <p class="text-danger mt-3 text-sm">
+
+                            14 Pending
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Charts + Stats -->
+
+                <div class="grid grid-cols-3 gap-6 mt-8">
+
+                    <!-- Revenue Chart -->
+
+                    <div class="card col-span-2 p-6">
+
+                        <div class="flex justify-between items-center">
+
+                            <h2 class="text-xl font-semibold">
+
+                                Revenue Overview
+
+                            </h2>
+
+                            <select class="bg-card border border-border rounded-lg px-3 py-2">
+
+                                <option>Last 7 Days</option>
+
+                                <option>Last Month</option>
+
+                                <option>Last Year</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mt-8 h-72 flex items-end gap-4">
+
+                            <div class="bg-primary w-full rounded-t-lg h-24"></div>
+
+                            <div class="bg-primary w-full rounded-t-lg h-40"></div>
+
+                            <div class="bg-primary w-full rounded-t-lg h-56"></div>
+
+                            <div class="bg-primary w-full rounded-t-lg h-36"></div>
+
+                            <div class="bg-primary w-full rounded-t-lg h-64"></div>
+
+                            <div class="bg-primary w-full rounded-t-lg h-52"></div>
+
+                            <div class="bg-primary w-full rounded-t-lg h-72"></div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right Stats -->
+
+                    <div class="space-y-6">
+
+                        <div class="card p-6">
+
+                            <h3 class="text-muted">
+
+                                Completed Projects
+
+                            </h3>
+
+                            <h2 class="text-4xl font-bold mt-3">
+
+                                91%
+
+                            </h2>
+
+                            <div class="w-full h-2 bg-gray-700 rounded-full mt-5">
+
+                                <div class="h-2 bg-success rounded-full w-[91%]"></div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card p-6">
+
+                            <h3 class="text-muted">
+
+                                Client Satisfaction
+
+                            </h3>
+
+                            <h2 class="text-4xl font-bold mt-3">
+
+                                96%
+
+                            </h2>
+
+                            <div class="w-full h-2 bg-gray-700 rounded-full mt-5">
+
+                                <div class="h-2 bg-primary rounded-full w-[96%]"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Recent Projects -->
+
+                <div class="mt-8">
+                    <div class="grid grid-cols-3 gap-6">
+
+                        <!-- Recent Projects -->
+
+                        <div class="col-span-2 card p-6">
+
+                            <div class="flex justify-between items-center mb-6">
+
+                                <h2 class="text-xl font-semibold">
+                                    Recent Projects
+                                </h2>
+
+                                <button class="bg-primary px-4 py-2 rounded-lg">
+                                    View All
+                                </button>
+
+                            </div>
+
+                            <table class="w-full">
+
+                                <thead>
+
+                                    <tr class="border-b border-border text-left text-muted">
+
+                                        <th class="pb-3">Project</th>
+
+                                        <th class="pb-3">Client</th>
+
+                                        <th class="pb-3">Status</th>
+
+                                        <th class="pb-3">Progress</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr class="border-b border-border">
+
+                                        <td class="py-5 font-medium">
+                                            Company Website
+                                        </td>
+
+                                        <td>
+                                            Acme Corp
+                                        </td>
+
+                                        <td>
+
+                                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+
+                                                Active
+
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="w-32 h-2 bg-gray-700 rounded-full">
+
+                                                <div class="h-2 bg-primary rounded-full w-[85%]"></div>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr class="border-b border-border">
+
+                                        <td class="py-5 font-medium">
+
+                                            CRM Dashboard
+
+                                        </td>
+
+                                        <td>
+
+                                            TechSoft
+
+                                        </td>
+
+                                        <td>
+
+                                            <span
+                                                class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">
+
+                                                Review
+
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="w-32 h-2 bg-gray-700 rounded-full">
+
+                                                <div class="h-2 bg-yellow-500 rounded-full w-[65%]"></div>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="py-5 font-medium">
+
+                                            Mobile App
+
+                                        </td>
+
+                                        <td>
+
+                                            Pixel Studio
+
+                                        </td>
+
+                                        <td>
+
+                                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">
+
+                                                Planning
+
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="w-32 h-2 bg-gray-700 rounded-full">
+
+                                                <div class="h-2 bg-blue-500 rounded-full w-[30%]"></div>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <!-- Activity -->
+
+                        <div class="card p-6">
+
+                            <h2 class="text-xl font-semibold mb-6">
+
+                                Recent Activity
+
+                            </h2>
+
+                            <div class="space-y-6">
+
+                                <div>
+
+                                    <p class="font-medium">
+
+                                        ✔ Invoice Paid
+
+                                    </p>
+
+                                    <p class="text-muted text-sm">
+
+                                        Acme Corp paid $2,400
+
+                                    </p>
+
+                                </div>
+
+                                <div>
+
+                                    <p class="font-medium">
+
+                                        ✔ New Client Added
+
+                                    </p>
+
+                                    <p class="text-muted text-sm">
+
+                                        Sarah Johnson
+
+                                    </p>
+
+                                </div>
+
+                                <div>
+
+                                    <p class="font-medium">
+
+                                        ✔ Project Completed
+
+                                    </p>
+
+                                    <p class="text-muted text-sm">
+
+                                        Portfolio Website
+
+                                    </p>
+
+                                </div>
+
+                                <div>
+
+                                    <p class="font-medium">
+
+                                        ✔ Payment Received
+
+                                    </p>
+
+                                    <p class="text-muted text-sm">
+
+                                        $5,900
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Recent Clients -->
+
+                    <div class="card p-6 mt-8">
+
+                        <div class="flex justify-between items-center mb-6">
+
+                            <h2 class="text-xl font-semibold">
+
+                                Recent Clients
+
+                            </h2>
+
+                            <button class="bg-primary px-4 py-2 rounded-lg">
+
+                                View All
+
+                            </button>
+
+                        </div>
+
+                        <table class="w-full">
+
+                            <thead>
+
+                                <tr class="border-b border-border text-left text-muted">
+
+                                    <th class="pb-3">Name</th>
+
+                                    <th class="pb-3">Company</th>
+
+                                    <th class="pb-3">Email</th>
+
+                                    <th class="pb-3">Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr class="border-b border-border">
+
+                                    <td class="py-5">Sarah Johnson</td>
+
+                                    <td>Acme Corp</td>
+
+                                    <td>sarah@acme.com</td>
+
+                                    <td>
+
+                                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+
+                                            Active
+
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="border-b border-border">
+
+                                    <td class="py-5">David Wilson</td>
+
+                                    <td>Pixel Studio</td>
+
+                                    <td>david@pixel.com</td>
+
+                                    <td>
+
+                                        <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">
+
+                                            Pending
+
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td class="py-5">Emily Brown</td>
+
+                                    <td>Future Tech</td>
+
+                                    <td>emily@future.com</td>
+
+                                    <td>
+
+                                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+
+                                            Active
+
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                    
+
+            </main>
+
+        </div>
+
+    </div>
+    
+</body>
+
+</html>

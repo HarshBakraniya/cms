@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CMS Pro - Client Management</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&amp;family=Inter:wght@400..700&amp;family=Geist:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface": "#13121b",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#7b2f00",
+                "tertiary": "#ffb695",
+                "surface-container-lowest": "#0e0d16",
+                "tertiary-fixed": "#ffdbcc",
+                "inverse-on-surface": "#302f39",
+                "primary": "#c3c0ff",
+                "error-container": "#93000a",
+                "on-tertiary": "#571f00",
+                "on-primary": "#1d00a5",
+                "on-surface": "#e4e1ee",
+                "surface-variant": "#35343e",
+                "tertiary-container": "#a44100",
+                "secondary-fixed": "#e0e0ff",
+                "on-secondary-container": "#a8afff",
+                "on-primary-fixed-variant": "#3323cc",
+                "on-primary-container": "#dad7ff",
+                "tertiary-fixed-dim": "#ffb695",
+                "on-surface-variant": "#c7c4d8",
+                "surface-container-low": "#1b1b24",
+                "surface-container-highest": "#35343e",
+                "background": "#13121b",
+                "surface-dim": "#13121b",
+                "inverse-primary": "#4d44e3",
+                "surface-bright": "#393842",
+                "on-primary-fixed": "#0f0069",
+                "secondary-container": "#2f3aa3",
+                "on-error": "#690005",
+                "on-secondary": "#131e8c",
+                "surface-container-high": "#2a2933",
+                "on-tertiary-container": "#ffd2be",
+                "outline": "#918fa1",
+                "primary-fixed": "#e2dfff",
+                "secondary-fixed-dim": "#bdc2ff",
+                "surface-tint": "#c3c0ff",
+                "error": "#ffb4ab",
+                "secondary": "#bdc2ff",
+                "on-tertiary-fixed": "#351000",
+                "inverse-surface": "#e4e1ee",
+                "outline-variant": "#464555",
+                "on-secondary-fixed-variant": "#2f3aa3",
+                "primary-container": "#4f46e5",
+                "surface-container": "#1f1f28",
+                "on-background": "#e4e1ee",
+                "primary-fixed-dim": "#c3c0ff",
+                "on-secondary-fixed": "#000767"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "8px",
+                "margin-desktop": "64px",
+                "md": "16px",
+                "xs": "4px",
+                "base": "4px",
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "xl": "40px",
+                "layout-margin": "32px",
+                "layout-gutter": "20px",
+                "lg": "24px"
+        },
+        "fontFamily": {
+                "label-caps": [
+                        "Geist"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "headline-xl": [
+                        "Hanken Grotesk"
+                ],
+                "code": [
+                        "Geist"
+                ],
+                "headline-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg": [
+                        "Hanken Grotesk"
+                ],
+                "display-lg": ["Hanken Grotesk"],
+                "headline-sm": ["Hanken Grotesk"],
+                "label-sm": ["Inter"],
+                "headline-md": ["Hanken Grotesk"],
+                "label-md": ["Inter"],
+                "body-lg": ["Inter"]
+        },
+        "fontSize": {
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "code": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "600" }],
+                "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[style*="'FILL' 1"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Ambient shadows for cards */
+        .shadow-ambient {
+            box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
+        }
+        .dark .shadow-ambient {
+            box-shadow: 0 4px 20px -2px rgba(0,0,0,0.2);
+        }
+        
+        /* Smooth transitions */
+        .interactive-element {
+            transition: all 100ms ease-out;
+        }
+        .interactive-element:hover {
+            transform: scale(1.02);
+        }
+        .interactive-element:active {
+            transform: scale(0.98);
+        }
+    </style>
+<script>
+    function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            document.getElementById('theme-icon').textContent = 'dark_mode';
+        } else {
+            document.documentElement.classList.remove('light');
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').textContent = 'light_mode';
+        }
+    }
+</script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-[1024px] dark:bg-background dark:text-on-background" data-mode="connect" data-stitch-vh="min-h-[1024px]===min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-lowest/70 dark:bg-surface-container-lowest/70 backdrop-blur-xl fixed top-0 right-0 w-[calc(100%-240px)] z-40 border-b border-outline-variant dark:border-outline-variant shadow-sm flex justify-between items-center px-layout-margin h-16 transition-all duration-200 ease-in-out">
+<div class="flex items-center space-x-md">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface">CMS Pro</span>
+</div>
+<div class="flex items-center space-x-lg">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low dark:bg-surface-container-low border border-outline-variant dark:border-outline-variant rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-body-sm text-on-surface dark:text-on-surface transition-colors" placeholder="Search..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary dark:text-on-surface-variant dark:hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-container dark:hover:bg-surface-container" onclick="toggleTheme()">
+<span class="material-symbols-outlined" data-icon="dark_mode" id="theme-icon">dark_mode</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary dark:text-on-surface-variant dark:hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-container dark:hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container dark:bg-surface-container border border-outline-variant dark:border-outline-variant shrink-0">
+<img alt="Administrator" class="w-full h-full object-cover" data-alt="A highly detailed close up portrait of a professional corporate administrator with a subtle smile. High-key lighting, bright minimal background, Apple-inspired premium aesthetic, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ-43hRJI9DgwFPCuz3_Z0UheT8tg2yW9wbUpBzZJLictOgZl5qigpq89NxwJ0I2M3t1zcY479Edg3u1plho1TPwTUoxPm_Mj0wTZow__6r_8IQElz0O1vUZWHBCQq8U7RvXMQkfW_FseyWHy6_AxOoNul0kKqvrFiv3zBJ7i9Wjp4q8OxQcGgBTnKSpTA7deXNIQg_NvFsEcm4f6ZVxt-h0YrpzcAhmKWO5mjl4t8jXOqmypHeyr0"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<nav class="bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl fixed left-0 top-0 h-full w-[240px] border-r border-outline-variant dark:border-outline-variant shadow-sm flex flex-col h-[1024px] p-md z-50" data-stitch-vh="h-[1024px]===h-screen">
+<div class="flex flex-col items-start mb-xl mt-sm px-sm">
+<div class="w-12 h-12 rounded-xl overflow-hidden mb-sm bg-surface-container dark:bg-surface-container shadow-ambient">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A highly detailed modern abstract 3D logo or avatar for a premium software product. Vibrant indigo and subtle cyan accents on a pure white background. Studio lighting, soft drop shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMLZcCygoS1lpjEuCdieVUJRGMcrFs_0fd-4fx2lRQ7JhQRp4KkQfFDi3rbgj4HG0drb0dvDvfWySdeD5uLDwHtmwxUJbVw3QG9uENe6yOzDJrCtSVTeBuXwlGOJe7eFMslhKXzLbfQQssoXTMewqVIawFJWxrCDIakE-tpQrETfgzXawXC-UkJCZzkhRLOb8ZlW9KRN63QSupFca3ANKnDX6pu_IeFJU9Qu73VPml41oiVzkLfNtG"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary"><span style="letter-spacing: -0.6px;">CMS Pro</span></h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant mt-1">Enterprise Tier</p>
+</div>
+<div class="flex-1 overflow-y-auto space-y-1">
+<a class="flex items-center space-x-sm px-sm py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="./dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center justify-between px-sm py-3 rounded-lg text-primary dark:text-primary font-bold border-r-2 border-primary bg-primary/10 hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="#">
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Clients</span>
+</div>
+</a>
+<a class="flex items-center space-x-sm px-sm py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="./projects.html">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+<a class="flex items-center space-x-sm px-sm py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label-md text-label-md">Files</span>
+</a>
+<a class="flex items-center space-x-sm px-sm py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Invoices</span>
+</a>
+<a class="flex items-center space-x-sm px-sm py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+<a class="flex items-center space-x-sm px-sm py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container transition-all duration-100 hover:scale-[1.02] active:scale-[0.98]" href="./settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant dark:border-outline-variant">
+<button class="w-full py-3 px-4 bg-primary-container dark:bg-primary-container text-on-primary-container dark:text-on-primary-container rounded-lg font-label-md text-label-md shadow-sm flex items-center justify-center space-x-2 interactive-element hover:bg-primary dark:hover:bg-primary hover:text-on-primary dark:hover:text-on-primary">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>New Project</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] pt-16 min-h-[1024px]" data-stitch-vh="min-h-[1024px]===min-h-screen">
+<div class="p-layout-margin max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-on-surface mb-1">Clients</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">Manage your client directory and statuses.</p>
+</div>
+<div class="mt-md md:mt-0 flex items-center space-x-sm">
+<div class="relative w-full md:w-64 hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-on-surface-variant" data-icon="filter_list">filter_list</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest dark:bg-surface-container-lowest border border-outline-variant dark:border-outline-variant rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-body-sm text-on-surface dark:text-on-surface shadow-ambient" placeholder="Filter clients..." type="text"/>
+</div>
+<button class="py-2 px-4 bg-surface-container-high dark:bg-surface-container-high text-on-surface dark:text-on-surface rounded-lg font-label-md text-label-md shadow-sm flex items-center space-x-2 interactive-element border border-outline-variant dark:border-outline-variant hover:bg-surface-variant dark:hover:bg-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+<span>Add Client</span>
+</button>
+</div>
+</div>
+<!-- Client Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-layout-gutter">
+<!-- Client Card 1 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-lowest rounded-[20px] p-lg border border-outline-variant dark:border-outline-variant shadow-ambient flex flex-col hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center space-x-md">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container dark:bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close up headshot of a corporate tech CEO. Clean white background, high-key studio lighting, sharp focus, professional attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1CmaKcYqxXeyQvDl7rFroJA314KjqXAfFoTH5u-I6sOmCl9n1-cH4HfO7-n1phubyKay73c9k9zzh6j3Rsx6o1bFSfHX2Gi7k6LTX-kH7LomA12G_ks1m-eK2yjIEwu59bsVNiP5pwzV7QOH1cXSlb8b5fH2vYjUbU3pYfs6UHLmel2Dwcm3HjQ0DxtZG1rBUGwayZ1XLXkVQ7728XJ7jheTvmpydzcC1usC0ko4ax8CMdFxBY4cq"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface">Acme Corp</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">Sarah Jenkins</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-primary-container/20 text-primary dark:text-primary rounded-full font-label-sm text-label-sm border border-primary/30">Active</span>
+</div>
+<div class="space-y-3 mt-auto pt-sm border-t border-outline-variant dark:border-outline-variant">
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="mail">mail</span>
+                            sarah@acmecorp.com
+                        </div>
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="phone">phone</span>
+                            +1 (555) 123-4567
+                        </div>
+</div>
+<div class="mt-md flex space-x-sm">
+<button class="flex-1 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg font-label-sm text-label-sm interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant">View Profile</button>
+<button class="px-3 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Client Card 2 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-lowest rounded-[20px] p-lg border border-outline-variant dark:border-outline-variant shadow-ambient flex flex-col hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center space-x-md">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container dark:bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="A highly detailed 3D abstract geometric shape representing a startup logo. Soft pastel colors, minimal background, high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuUpVPl_zAm_1Glo-t3TF8yMN-ephTCvK3Fvr_vPtHVsxEHRP3_Ew0rLlp6T7szFjdUDV88CGjBHO3xXr2zHpvHxln2NRq-VQjFESa2HMgE7ohOx8vdKnq5UDVOflk_zLpJvQsNy0b8bfqU-Hco284tMQjVfGVM4xSvTTWC0gR_EGacaQdkatX4cwybXmgaNU-ORt3lBwHWCAjozpLvsJPNkAYI61ZvtziCZ-Fvy0bOVJVY1BIRrHd"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface">Globex Inc.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">Marcus Roe</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-primary-container/20 text-primary dark:text-primary rounded-full font-label-sm text-label-sm border border-primary/30">Active</span>
+</div>
+<div class="space-y-3 mt-auto pt-sm border-t border-outline-variant dark:border-outline-variant">
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="mail">mail</span>
+                            m.roe@globex.com
+                        </div>
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="phone">phone</span>
+                            +44 20 7123 4567
+                        </div>
+</div>
+<div class="mt-md flex space-x-sm">
+<button class="flex-1 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg font-label-sm text-label-sm interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant">View Profile</button>
+<button class="px-3 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Client Card 3 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-lowest rounded-[20px] p-lg border border-outline-variant dark:border-outline-variant shadow-ambient flex flex-col hover:border-primary/50 transition-colors opacity-80 hover:opacity-100">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center space-x-md">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container dark:bg-surface-container shrink-0 flex items-center justify-center text-on-surface-variant dark:text-on-surface-variant font-headline-sm">
+                                IN
+                            </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface">Initech</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">Bill Lumbergh</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-variant dark:bg-surface-variant text-on-surface-variant dark:text-on-surface-variant rounded-full font-label-sm text-label-sm border border-outline-variant dark:border-outline-variant">Inactive</span>
+</div>
+<div class="space-y-3 mt-auto pt-sm border-t border-outline-variant dark:border-outline-variant">
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="mail">mail</span>
+                            bill@initech.net
+                        </div>
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="phone">phone</span>
+                            +1 (555) 888-9999
+                        </div>
+</div>
+<div class="mt-md flex space-x-sm">
+<button class="flex-1 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg font-label-sm text-label-sm interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant">View Profile</button>
+<button class="px-3 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Client Card 4 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-lowest rounded-[20px] p-lg border border-outline-variant dark:border-outline-variant shadow-ambient flex flex-col hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center space-x-md">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container dark:bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close up portrait of a creative director in a bright minimalist office. Natural lighting, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIlyIBisf_vVaK3ZF7s3vgTcbbLp9RNi6kSGuoAKfknL9LQ3uIZpHTF4Gcx_a6ph0ie4Sg3sUW0zsiXI4tH5PmB7bE0PoVejm9pzeu9RzrIgmcm_qx0_UsSHgTlfzKepLTyB08nLBwL3QJchzpJMUBcqsds_bw3ojLQxXnwqJZvohGbu4ll2BH7d8xV5-3KgbEHhJyzyrqL-VvemFQsDSLCWCv9PAH4BMgEnZLsXzOL4IUE1mc6Do2"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface">Design Co.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">Elena Rodriguez</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-primary-container/20 text-primary dark:text-primary rounded-full font-label-sm text-label-sm border border-primary/30">Active</span>
+</div>
+<div class="space-y-3 mt-auto pt-sm border-t border-outline-variant dark:border-outline-variant">
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="mail">mail</span>
+                            hello@designco.studio
+                        </div>
+<div class="flex items-center text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="phone">phone</span>
+                            +34 91 123 45 67
+                        </div>
+</div>
+<div class="mt-md flex space-x-sm">
+<button class="flex-1 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg font-label-sm text-label-sm interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant">View Profile</button>
+<button class="px-3 py-2 bg-surface-container-low dark:bg-surface-container-low text-on-surface dark:text-on-surface rounded-lg interactive-element border border-transparent hover:border-outline-variant dark:hover:border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More Placeholder -->
+<div class="mt-xl flex justify-center">
+<button class="px-6 py-3 bg-surface-container-lowest dark:bg-surface-container-lowest border border-outline-variant dark:border-outline-variant text-on-surface dark:text-on-surface rounded-full font-label-md text-label-md shadow-sm interactive-element hover:text-primary dark:hover:text-primary hover:border-primary/50 dark:hover:border-primary/50">
+                    Load More Clients
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer Context for Main App Area -->
+<footer class="ml-[240px] bg-background dark:bg-background w-full py-xl border-t border-outline-variant dark:border-outline-variant flat no shadows flex flex-col md:flex-row justify-between items-center px-layout-margin">
+<div class="max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant dark:text-on-surface-variant">© 2024 CMS Pro. Precision through Simplicity.</span>
+</div>
+<div class="flex space-x-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+</body></html>
